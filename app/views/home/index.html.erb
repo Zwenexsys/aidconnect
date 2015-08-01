@@ -1,6 +1,5 @@
 <div class="container" style="">
     <div class="jumbotron">
-        <h1>CALL 1876</h1>
         <p>ရေဘေး အကူညီတောင်းရန် (သို့မဟုတ်) အကူညီပေးရန် 1876 ကိုဖုန်းခေါ်လိုက်ပါ။ <br/>
         Call 1876 to Request Aid OR Offer Aid for Flood Victims.</p>
         <p><a class="btn btn-primary" href="/about">Learn more (အသေးစိတ်) &raquo;</a></p>
@@ -9,23 +8,33 @@
 <div class="container">
     <h3>2015 Flood Locations</h3>
     <div class="row">
+        <%- 
+            lvl = {
+                1 => "panel-danger",
+                5 => "panel-danger",
+                10 => "panel-warning",
+                20 => "panel-warning",
+                50 => "panel-info",
+            } 
+        -%>
         <%- @locations.each do |location| -%>
             <div class="col-md-3">
-            <div class="panel panel-warning">
+                <div class="panel <%= lvl[location.seq] || "panel-info" -%>">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><%= location.township %> <span style="font-size:0.8em;">(<%= location.state%>) <span class="label label-danger"><%= location.status %></span><br/></span></h3>
+                    <h3 class="panel-title"><%= location.township %> <span style="font-size:0.8em;">(<%= location.state%>) </span></h3>
                 </div>
                 <div class="panel-body">
-                    <div>
-                    <label>Total Requests</label>&nbsp;<span class="badge"><%= location.aid_requests.length %></span></label>&nbsp;
-                    <label>Total Offers</label>&nbsp;<span class="badge"><%= location.aid_offers.length %></span></label>
+                <div>
+                    <label>Population</label>&nbsp;<span class="label label-primary"><%= number_to_human(location.demographic["total_male"] + location.demographic["total_female"]) %></span></label>&nbsp;
+                    <!-- <label>Total Requests</label>&#38;nbsp;<span class="badge"><%= location.aid_requests.length %></span></label>&#38;nbsp; -->
+                    <!-- <label>Total Offers</label>&#38;nbsp;<span class="badge"><%= location.aid_offers.length %></span></label> -->
                 </div>
                 <br/>
                     <div class="text-right">
-                        <a href="#" class="btn btn-primary btn-xs" title="Map of <%= location.township%>">
+                        <a href="#" class="btn btn-default btn-xs" title="Map of <%= location.township%>">
                             <span class="glyphicon glyphicon-map-marker"></span> 
                         </a>
-                        <a href="/+/<%= location.township%>" class="btn btn-primary btn-xs">Details</a> 
+                        <a href="/+/<%= location.township%>" class="btn btn-default btn-xs">Details</a> 
                      </div>
                 </div>
             </div>

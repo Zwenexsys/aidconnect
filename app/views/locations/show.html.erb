@@ -9,9 +9,12 @@
         <p><%= @location.description || "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit " %></p>
             </div>
             <div class="col-md-4">
+                <h6>Demographics</h6>
+                <table class="table table-condensed">
                 <%- @location.demographic.each do |key,value| -%>
-                    <span class="label label-danger"><%= value %></span>&nbsp;<%= key.humanize.camelize%><br/>
+                    <tr><td align="right">&nbsp;<%= key.humanize.camelize%></td><td><span class="label label-danger"><%= value %></span></td></tr>
             <%- end-%>
+        </table>
             </div>
         </div>
     </div>
