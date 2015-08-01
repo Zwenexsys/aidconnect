@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = Location.all.order(:seq).order(:township)
   end
 
   # GET /locations/1
@@ -64,7 +64,11 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      unless params[:id].to_i == 0
+          @location = Location.find(params[:id])
+      else
+          @location = Location.find_by_township(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

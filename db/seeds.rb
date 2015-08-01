@@ -8,10 +8,11 @@
 
 data = File.open("db/census_tablea3.csv").readlines
 data.each do |line|
-    puts line
     state, district, township, total_male, total_female, urban_total_male, urban_total_female, rural_total_male, rural_total_female = line.split("\t")
-    l = Location.create(:state => state, :township => township, :status => "NORMAL", 
-                        :seq => 100,
+    status = "NORMAL"
+    status = "DISASTER" unless %w(Kawlin Kale Pwintpyu Mrauk-U Kyauktaw Minbya Myebon Hakha Minbu).index(township).nil?
+    l = Location.create(:state => state, :township => township, :status => status, 
+                        :seq => (status == "NORMAL" ? 100 : 1),
                         :mm_state => "",
                         :mm_township => "",
                         :demographic => {
