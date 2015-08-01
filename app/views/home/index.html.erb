@@ -1,8 +1,9 @@
-<div class="container" style="display:none;">
+<div class="container" style="">
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>CALL 1876</h1>
+        <p>ရေဘေး အကူညီတောင်းရန် (သို့မဟုတ်) အကူညီပေးရန် 1876 ကိုဖုန်းခေါ်လိုက်ပါ။ <br/>
+        Call 1876 to Request Aid OR Offer Aid for Flood Victims.</p>
+        <p><a class="btn btn-primary" href="/about">Learn more (အသေးစိတ်) &raquo;</a></p>
     </div>
 </div>
 <div class="container">
@@ -16,15 +17,10 @@
                 </div>
                 <div class="panel-body">
                     <div>
-                        <h6>Latest Aid Request </h6>
-                        <%- ff = location.aid_requests.order("created_at desc").first -%>
-                        <%= ff.content unless ff.nil? %>
-                    </div>
-                    <br/>
-                    <div>
                     <label>Total Requests</label>&nbsp;<span class="badge"><%= location.aid_requests.length %></span></label>&nbsp;
                     <label>Total Offers</label>&nbsp;<span class="badge"><%= location.aid_offers.length %></span></label>
                 </div>
+                <br/>
                     <div class="text-right">
                         <a href="#" class="btn btn-primary btn-xs" title="Map of <%= location.township%>">
                             <span class="glyphicon glyphicon-map-marker"></span> 

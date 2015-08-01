@@ -14,6 +14,7 @@ class AidRequestsController < ApplicationController
 
   # GET /aid_requests/new
   def new
+    @locations = Location.where("status <> 'NORMAL'").order(:seq).order(:township)
     @aid_request = AidRequest.new
   end
 

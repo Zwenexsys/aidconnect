@@ -4,4 +4,7 @@ class HomeController < ApplicationController
     @requests = AidRequest.all.order("created_at desc").limit(5)
     @offers = AidOffer.all.order("created_at desc").limit(5)
   end
+
+  def about
+  end
 end

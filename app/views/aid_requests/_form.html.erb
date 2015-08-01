@@ -29,8 +29,9 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br>
-    <%= f.number_field :location_id %>
+    <%= f.select :location_id , options_for_select(@locations.collect do |l| [l.township + " - " + l.state, l.id]; end) %>
   </div>
+  <br/>
   <div class="actions">
     <%= f.submit %>
   </div>
