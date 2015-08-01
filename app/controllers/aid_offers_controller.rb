@@ -14,6 +14,7 @@ class AidOffersController < ApplicationController
 
   # GET /aid_offers/new
   def new
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
     @aid_offer = AidOffer.new
   end
 

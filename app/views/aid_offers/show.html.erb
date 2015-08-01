@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = AidOffer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @aid_offer.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @aid_offer.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @aid_offer.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nric) %>:</strong></dt>
+  <dd><%= @aid_offer.nric %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @aid_offer.content %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:location_id) %>:</strong></dt>
+  <dd><%= @aid_offer.location_id %></dd>
+</dl>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @aid_offer.phone %>
-</p>
-
-<p>
-  <strong>Nric:</strong>
-  <%= @aid_offer.nric %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @aid_offer.content %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @aid_offer.location_id %>
-</p>
-
-<%= link_to 'Edit', edit_aid_offer_path(@aid_offer) %> |
-<%= link_to 'Back', aid_offers_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              aid_offers_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_aid_offer_path(@aid_offer), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              aid_offer_path(@aid_offer),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
