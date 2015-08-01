@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @general_offer.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @general_offer.phone %>
+</p>
+
+<p>
+  <strong>Nric:</strong>
+  <%= @general_offer.nric %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @general_offer.content %>
+</p>
+
+<%= link_to 'Edit', edit_general_offer_path(@general_offer) %> |
+<%= link_to 'Back', general_offers_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@general_offer) do |f| %>
+  <% if @general_offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@general_offer.errors.count, "error") %> prohibited this general_offer from being saved:</h2>
+
+      <ul>
+      <% @general_offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :nric %><br>
+    <%= f.text_field :nric %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

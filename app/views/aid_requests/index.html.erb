@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aid Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Nric</th>
+      <th>Content</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aid_requests.each do |aid_request| %>
+      <tr>
+        <td><%= aid_request.name %></td>
+        <td><%= aid_request.phone %></td>
+        <td><%= aid_request.nric %></td>
+        <td><%= aid_request.content %></td>
+        <td><%= aid_request.location_id %></td>
+        <td><%= link_to 'Show', aid_request %></td>
+        <td><%= link_to 'Edit', edit_aid_request_path(aid_request) %></td>
+        <td><%= link_to 'Destroy', aid_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aid request', new_aid_request_path %>

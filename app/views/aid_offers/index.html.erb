@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aid Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Nric</th>
+      <th>Content</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aid_offers.each do |aid_offer| %>
+      <tr>
+        <td><%= aid_offer.name %></td>
+        <td><%= aid_offer.phone %></td>
+        <td><%= aid_offer.nric %></td>
+        <td><%= aid_offer.content %></td>
+        <td><%= aid_offer.location_id %></td>
+        <td><%= link_to 'Show', aid_offer %></td>
+        <td><%= link_to 'Edit', edit_aid_offer_path(aid_offer) %></td>
+        <td><%= link_to 'Destroy', aid_offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aid offer', new_aid_offer_path %>

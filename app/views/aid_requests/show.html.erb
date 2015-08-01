@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @aid_request.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @aid_request.phone %>
+</p>
+
+<p>
+  <strong>Nric:</strong>
+  <%= @aid_request.nric %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @aid_request.content %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @aid_request.location_id %>
+</p>
+
+<%= link_to 'Edit', edit_aid_request_path(@aid_request) %> |
+<%= link_to 'Back', aid_requests_path %>

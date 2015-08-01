@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing General Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Nric</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @general_offers.each do |general_offer| %>
+      <tr>
+        <td><%= general_offer.name %></td>
+        <td><%= general_offer.phone %></td>
+        <td><%= general_offer.nric %></td>
+        <td><%= general_offer.content %></td>
+        <td><%= link_to 'Show', general_offer %></td>
+        <td><%= link_to 'Edit', edit_general_offer_path(general_offer) %></td>
+        <td><%= link_to 'Destroy', general_offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New General offer', new_general_offer_path %>
