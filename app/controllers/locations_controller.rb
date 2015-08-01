@@ -10,6 +10,8 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @requests = @location.aid_requests.order("created_at desc")
+    @offers = @location.aid_offers.order("created_at desc")
   end
 
   # GET /locations/new

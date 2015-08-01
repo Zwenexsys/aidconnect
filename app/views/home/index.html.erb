@@ -29,11 +29,35 @@
                         <a href="#" class="btn btn-primary btn-xs" title="Map of <%= location.township%>">
                             <span class="glyphicon glyphicon-map-marker"></span> 
                         </a>
-                        <a href="#" class="btn btn-primary btn-xs">Details</a> 
+                        <a href="/+/<%= location.township%>" class="btn btn-primary btn-xs">Details</a> 
                      </div>
                 </div>
             </div>
         </div>
     <%- end -%>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Latest Aid Requests</h4>
+            <%- @requests.each do |req| -%>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    req.content
+                </div>
+            </div>
+            <%- end -%>
+        </div>
+        <div class="col-md-6">
+            <h4>Latest Aid Offers</h4>
+            <%- @offers.each do |offer| -%>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                   offer.content 
+                </div>
+            </div>
+            <%- end -%>
+        </div>
     </div>
 </div>

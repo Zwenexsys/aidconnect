@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get '+/:id' => "locations#show" 
 
   resources :shelters
   resources :general_offers

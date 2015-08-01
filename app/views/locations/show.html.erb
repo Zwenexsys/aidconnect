@@ -1,40 +1,44 @@
-<div class="container">
 <p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-8">
+        <span class="label label-danger pull-left"><%= @location.status %></span> 
+        <h1><%= @location.township %>&nbsp;<span style="font-size:0.8em;">(<%= @location.state%>)</h1>
 
-<p>
-  <strong>State:</strong>
-  <%= @location.state %>
-</p>
-
-<p>
-  <strong>Township:</strong>
-  <%= @location.township %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @location.status %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
-
-<p>
-  <strong>Lat:</strong>
-  <%= @location.lat %>
-</p>
-
-<p>
-  <strong>Lon:</strong>
-  <%= @location.lon %>
-</p>
-
-<p>
-  <strong>Demographic:</strong>
-  <%= @location.demographic %>
-</p>
+        <p><%= @location.description || "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit " %></p>
+            </div>
+            <div class="col-md-4">
+                <%- @location.demographic.each do |key,value| -%>
+                    <span class="label label-danger"><%= value %></span>&nbsp;<%= key.humanize.camelize%><br/>
+            <%- end-%>
+            </div>
+        </div>
+    </div>
+</div><!-- row -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Aid Requests (<%= @requests.length %>)</h4>
+            <%- @requests.each do |req| -%>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    req.content
+                </div>
+            </div>
+            <%- end -%>
+        </div>
+        <div class="col-md-6">
+            <h4>Aid Offers (<%= @offers.length %>)</h4>
+            <%- @offers.each do |offer| -%>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                   offer.content 
+                </div>
+            </div>
+            <%- end -%>
+        </div>
+</div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

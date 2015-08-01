@@ -10,7 +10,7 @@ data = File.open("db/census_tablea3.csv").readlines
 data.each do |line|
     state, district, township, total_male, total_female, urban_total_male, urban_total_female, rural_total_male, rural_total_female = line.split("\t")
     status = "NORMAL"
-    status = "DISASTER" unless %w(Kawlin Kale Pwintpyu Mrauk-U Kyauktaw Minbya Myebon Hakha Minbu).index(township).nil?
+    status = "DISASTER" unless %w(Kawlin Kale Pwintpyu Mrauk-U Kyauktaw Minbya Myebon Hakha Minbu Aunglan).index(township).nil?
     l = Location.create(:state => state, :township => township, :status => status, 
                         :seq => (status == "NORMAL" ? 100 : 1),
                         :mm_state => "",
@@ -27,3 +27,5 @@ data.each do |line|
                             :rural_total_female => rural_total_female.strip.to_i
     })
 end
+
+
