@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= content_for?(:title) ? yield(:title) : "Myanmar Flood 2015" %></title>
+<title><%= content_for?(:title) ? yield(:title) : "AidConnect" %></title>
 <%= csrf_meta_tags %>
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -16,7 +16,7 @@
 
 <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
 <link rel="stylesheet" href='http://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
-<style> h1,h2,h4,h5,h6,p,input,div,span{ font-family:Myanmar3,Yunghkio; } </style>
+<style> h1,h2,h4,h5,h6,p,input,div,span,a{ font-family:"Myanmar3","sans-serif"; } </style>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" title="Build with Compassion by Zwenexsys">ရေဘေးကမ့် <span style="font-size:0.4em;position:absolute;bottom:0;">by Myanmar Barcampers</span></a>
+            <a class="navbar-brand" href="/" title="Build with Compassion by Zwenexsys">AidConnect<span style="font-size:0.4em;position:absolute;bottom:0;">by Myanmar Barcampers</span></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -62,22 +62,22 @@
 
 <br/>
 <div class="container" style="background-color:#f0f0f0;">
-        <div class="col-md-4">
-            <h6>Organized by </h6>
-            MYANMAR BARCAMPERS <br/><%= image_tag "bcylogo.png", :width => "240px", :height => "93px" %>
-        </div>
-        <div class="col-md-4">
-            <h6>Operation sponsored by </h6>
-            <a href="http://www.blueoceanmgt.com" target="_blank"><%= image_tag "1876.png" %></a>
-        </div>
-        <div class="col-md-4">
-            <h6>Development sponsored by </h6>
-            <a href="http://www.zwenex.com" target="_blank"><%= image_tag "logo_zwenex.png" %></a>
-        </div>
+    <div class="col-md-4">
+        <h6>Organized by </h6>
+        MYANMAR BARCAMPERS <br/><%= image_tag "bcylogo.png", :width => "240px", :height => "93px" %>
+</div>
+    <div class="col-md-4">
+        <h6>Operation sponsored by </h6>
+        <a href="http://www.blueoceanmgt.com" target="_blank"><%= image_tag "1876.png" %></a>
+    </div>
+    <div class="col-md-4">
+        <h6>Development sponsored by </h6>
+        <a href="http://www.zwenex.com" target="_blank"><%= image_tag "logo_zwenex.png" %></a>
+    </div>
 </div>
 <div class="container" style="background-color:#2196f3;color:white;">
-        <div class="col-md-12">&copy; FREE. </div>
-    </div>
+    <div class="col-md-12">&copy; FREE. </div>
+</div>
 
 
     </div> <!-- /container -->
@@ -87,5 +87,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
     <%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-57952576-1', 'auto');
+ga('send', 'pageview');
+
+</script>
   </body>
 </html>
