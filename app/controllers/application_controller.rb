@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
             @current_user = user
         else
             request_http_basic_authentication
-        end if controller_name != "home" and controller_name != "api"
+        end if controller_name != "home" and controller_name != "api" and (controller_name == "locations" and action_name != "show")
     end
 end
