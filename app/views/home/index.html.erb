@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header">
             <p class="text-center" style="font-size:28px;margin-bottom:0px;">ရေဘေးကယ်ဆယ် ကမ်းလက်သွယ်</p>
-            <h3 class="text-center" style="color:white;margin-top:0px;">Call Hotline <a href="tel:012399977" style="color:#f00;">01-23-999-77</a></h3>
+            <h3 class="text-center" style="color:white;margin-top:0px;">Hotline <a href="tel:012399977" style="color:#f00;">01-23-999-77</a></h3>
         </div>
     </div>
 </div>
@@ -20,15 +20,15 @@
         <div class="col-md-5">
             <p class="text-center" style="font-size:18px;">Aid Requests တောင်းခံမှုများ</p>
             <h1 class="text-center", style="color:#fff;"><%= AidRequest.count %></h1>
-            <p class="text-center"><a href="/requests" style="color:#fff">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class="text-center"><a href="/requests" style="color:#fff" class="btn btn-primary">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
         </div>
         <div class="col-md-2">
-            <span style="font-size:90px;">&#9733;</span>
+            <p class="text-center"><span style="font-size:90px;">&#9733;</span></p>
         </div>
         <div class="col-md-5">
             <p class="text-center" style="font-size:18px;">Aid Offers ပေးလိုမှုများ</p>
             <h1 class="text-center", style="color:#fff;"><%= AidOffer.count %></h1>
-            <p class="text-center"><a href="/offers" style="color:#fff">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class="text-center"><a href="/offers" style="color:#fff" class="btn btn-primary">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
         </div>
     </div>
     <div class="container">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         <%- end -%>
-            <p class=""><a href="/requests" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class=""><a href="/requests" style="" class="btn btn-default">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
         </div>
         <div class="col-md-6">
             <h4>Latest Aid Offers</h4>
@@ -89,7 +89,7 @@
                 </div>
             </div>
         <%- end -%>
-            <p class=""><a href="/offers" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class=""><a href="/offers" style="" class="btn btn-default">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
         </div>
     </div>
 </div>
