@@ -1,0 +1,22 @@
+<br/>
+<div class="row">
+<div class="container">
+    <h4 class="text-center">Call for 01-23-999-77 For Contact Details</h4>
+<div>
+<div>
+<div class="container">
+    <h3 class="text-center">Latest Aid Offers နောက်ဆုံးရ အကူအညီပေးလိုမှုများ</h3>
+    <%- @offers.each do |offer| %>
+    <div class="col-md-3" style="border-right:solid 2px #ccc;"">
+        For <span class="label label-danger">
+            <%= offer.location.township %>
+        </span>
+        &nbsp;<span>Ref Code: <%= offer.code %></span></br>
+        Posted <span class="badge"><%= time_ago_in_words(offer.created_at)%> ago</span>
+        
+        <p class="content" style="font-size:1.4em;font-weight:bold;">
+        <%= offer.content %> 
+        </p>
+    </div>
+<%- end -%>
+</div>

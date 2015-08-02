@@ -1,4 +1,13 @@
 <%= form_for @aid_request, :html => {:class => "form form-horizontal"} do |f| %>
+    <%= f.hidden_field :code %>
+  <div class="form-group">
+    <%= f.label :location_id, :class => 'control-label' %>
+    <%= f.select :location_id, options_for_select(@locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_request.location_id), {}, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <%= f.text_area :content, :class => 'form-control' %>
+  </div>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label' %>
     <%= f.text_field :name, :class => 'form-control' %>
@@ -10,14 +19,6 @@
   <div class="form-group">
     <%= f.label :nric, :class => 'control-label' %>
     <%= f.text_field :nric, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content, :class => 'control-label' %>
-    <%= f.text_area :content, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :location_id, :class => 'control-label' %>
-    <%= f.select :location_id, options_for_select(@locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_request.location_id), {}, :class => 'form-control' %>
   </div>
 
   <div class="form-actions">

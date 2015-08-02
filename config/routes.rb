@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get '/offers' => "home#offers" 
+  get '/requests' => "home#requests" 
   get '+/:id' => "locations#show" 
   get 'about' => "home#about" 
 

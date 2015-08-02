@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class AidOffersController < ApplicationController
   before_action :set_aid_offer, only: [:show, :edit, :update, :destroy]
 
@@ -20,12 +22,15 @@ class AidOffersController < ApplicationController
 
   # GET /aid_offers/1/edit
   def edit
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
   end
 
   # POST /aid_offers
   # POST /aid_offers.json
   def create
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
     @aid_offer = AidOffer.new(aid_offer_params)
+    @aid_offer.code = SecureRandom.hex(3).to_s.upcase.insert(3,"-").insert(0,"O-")
 
     respond_to do |format|
       if @aid_offer.save
@@ -41,6 +46,7 @@ class AidOffersController < ApplicationController
   # PATCH/PUT /aid_offers/1
   # PATCH/PUT /aid_offers/1.json
   def update
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
     respond_to do |format|
       if @aid_offer.update(aid_offer_params)
         format.html { redirect_to @aid_offer, notice: 'Aid offer was successfully updated.' }

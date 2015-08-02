@@ -1,3 +1,4 @@
+require 'securerandom'
 class AidRequestsController < ApplicationController
   before_action :set_aid_request, only: [:show, :edit, :update, :destroy]
 
@@ -20,12 +21,15 @@ class AidRequestsController < ApplicationController
 
   # GET /aid_requests/1/edit
   def edit
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
   end
 
   # POST /aid_requests
   # POST /aid_requests.json
   def create
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
     @aid_request = AidRequest.new(aid_request_params)
+    @aid_request.code = SecureRandom.hex(3).to_s.upcase.insert(3,"-").insert(0,"R-")
 
     respond_to do |format|
       if @aid_request.save
@@ -41,6 +45,7 @@ class AidRequestsController < ApplicationController
   # PATCH/PUT /aid_requests/1
   # PATCH/PUT /aid_requests/1.json
   def update
+    @locations = Location.where("status <> 'NORMAL'").order("state, township desc")
     respond_to do |format|
       if @aid_request.update(aid_request_params)
         format.html { redirect_to @aid_request, notice: 'Aid request was successfully updated.' }
@@ -70,6 +75,6 @@ class AidRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aid_request_params
-      params.require(:aid_request).permit(:name, :phone, :nric, :content, :location_id)
+      params.require(:aid_request).permit(:name, :phone, :nric, :content, :location_id, :code)
     end
 end

@@ -9,4 +9,13 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def offers
+    @offers = AidOffer.all.includes(:location).order("created_at desc").limit(1000)
+  end
+
+  def requests
+    @requests = AidRequest.all.includes(:location).order("created_at desc").limit(1000)
+  end
+
 end
