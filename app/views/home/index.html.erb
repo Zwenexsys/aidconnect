@@ -6,6 +6,9 @@
         </div>
     </div>
 </div>
+
+
+<!-- Flag -->
 <div class="row" style="background-color:#34b233;color:white;">
     <div class="container">
         <div class="col-md-12">
@@ -18,111 +21,121 @@
             <p class="text-center" style="font-size:18px;">Aid Requests တောင်းခံမှုများ</p>
             <h1 class="text-center", style="color:#fff;"><%= AidRequest.count %></h1>
             <p class="text-center"><a href="/requests" style="color:#fff">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
-                </div>
-                <div class="col-md-2">
-                    <span style="font-size:90px;">&#9733;</span>
-                </div>
-                <div class="col-md-5">
-                    <p class="text-center" style="font-size:18px;">Aid Offers ပေးလိုမှုများ</p>
-                    <h1 class="text-center", style="color:#fff;"><%= AidOffer.count %></h1>
-                    <p class="text-center"><a href="/offers" style="color:#fff">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="col-md-12">
-                            <p class="text-center" >
-                            <a href="/about" style="font-size:18px;color:white;">How to ask/offer Help? အကူအညီတောင်း/ပေးလိုပါလျှင်</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="col-md-2">
+            <span style="font-size:90px;">&#9733;</span>
+        </div>
+        <div class="col-md-5">
+            <p class="text-center" style="font-size:18px;">Aid Offers ပေးလိုမှုများ</p>
+            <h1 class="text-center", style="color:#fff;"><%= AidOffer.count %></h1>
+            <p class="text-center"><a href="/offers" style="color:#fff">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <p class="text-center" >
+            <a href="/about" style="font-size:18px;color:white;">How to ask/offer Help? အကူအညီတောင်း/ပေးလိုပါလျှင်</a>
+            </p>
+        </div>
+    </div>
+</div>
 
-                <div class="row" style="background-color:#EA2839;color:white;">
-                    <div class="container">
-                        <div class="col-md-12">
-                            <h3 class="text-center" style="color:#fff">Flood Locations<br/>ရေဘေးသင့် ဒေသများ</h3>
-                            <br/>
-                        </div>
-                    </div>
+<div class="row" style="background-color:#EA2839;color:white;">
+    <div class="container">
+        <div class="col-md-12">
+            <h3 class="text-center" style="color:#fff">Latest Request & Offers<br/>နောက်ဆုံးရ အကူအညီ တောင်းခံ၊ ပေးလိုမှုများ</h3>
+            <br/>
+        </div>
+    </div>
+</div>
+<br/>
+
+<!-- Latest Request & Offers -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Latest Aid Requests</h4>
+            <%- @requests.each do |req| -%>
+                <div class="panel panel-default">
+                <div class="panel-body">
+                    For <span class="label label-danger">
+                        <%= req.location.township %>
+                    </span>
+                    &nbsp;<span>Ref Code: <%= req.code %></span></br>
+                    Posted <span class="badge"><%= time_ago_in_words(req.created_at)%> ago</span>
+
+                    <p class="content" style="font-size:1.4em;font-weight:bold;">
+                    <%= req.content %> 
+                    </p>
                 </div>
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <%- 
-                            lvl = {
-                                1 => "panel-danger",
-                                5 => "panel-danger",
-                                10 => "panel-warning",
-                                20 => "panel-warning",
-                                50 => "panel-info",
-                            } 
-                        -%>
-                        <%- @locations.each do |location| -%>
-                                <div class="col-md-3">
-                                <div class="panel <%= lvl[location.seq] || "panel-info" -%>">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><%= location.township %> <span style="font-size:0.8em;">(<%= location.state%>) </span></h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div>
-                                            <label>Population</label>&nbsp;<span class="label label-primary"><%= number_to_human(location.demographic["total_male"] + location.demographic["total_female"]) %></span></label>&nbsp;
-                                        <!-- <label>Total Requests</label>&#38;nbsp;<span class="badge"><%= location.aid_requests.length %></span></label>&#38;nbsp; -->
-                                        <!-- <label>Total Offers</label>&#38;nbsp;<span class="badge"><%= location.aid_offers.length %></span></label> -->
-                                    </div>
-                                    <br/>
-                                    <div class="text-right">
-                                        <%- unless location.lat.nil? -%>
-                                            <a target="_blank" href="https://www.google.com/maps/place/<%= location.lat%>,<%= location.lon%>" class="btn btn-default btn-xs" title="Map of <%= location.township%>">
-                                            <span class="glyphicon glyphicon-map-marker"></span> 
-                                        </a>
-                                    <%- end -%>
-                                        <a href="/+/<%= location.township%>" class="btn btn-default btn-xs">Details</a> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        <%- end -%>
+            <p class=""><a href="/requests" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+        </div>
+        <div class="col-md-6">
+            <h4>Latest Aid Offers</h4>
+            <%- @offers.each do |offer| -%>
+                <div class="panel panel-default">
+                <div class="panel-body">
+                    For <span class="label label-danger">
+                        <%= offer.location.township %>
+                    </span>
+                    &nbsp;<span>Ref Code: <%= offer.code %></span></br>
+                    Posted <span class="badge"><%= time_ago_in_words(offer.created_at)%> ago</span>
+
+                    <p class="content" style="font-size:1.4em;font-weight:bold;">
+                    <%= offer.content %> 
+                    </p>
+                </div>
+            </div>
+        <%- end -%>
+            <p class=""><a href="/offers" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color:#EA2839;color:white;">
+<div class="container">
+            <h3 class="text-center" style="color:#fff">Flood Locations<br/>ရေဘေးသင့် ဒေသများ</h3>
+    </div>
+</div>
+<br/>
+<!-- Locations -->
+<div class="container">
+    <div class="row">
+        <%- 
+            lvl = {
+                1 => "panel-danger",
+                5 => "panel-danger",
+                10 => "panel-warning",
+                20 => "panel-warning",
+                50 => "panel-info",
+            } 
+        -%>
+        <%- @locations.each do |location| -%>
+                <div class="col-md-3">
+                <div class="panel <%= lvl[location.seq] || "panel-info" -%>">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><%= location.township %> <span style="font-size:0.8em;">(<%= location.state%>) </span></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <label>Population</label>&nbsp;<span class="label label-primary"><%= number_to_human(location.demographic["total_male"] + location.demographic["total_female"]) %></span></label>&nbsp;
+                        <!-- <label>Total Requests</label>&#38;nbsp;<span class="badge"><%= location.aid_requests.length %></span></label>&#38;nbsp; -->
+                        <!-- <label>Total Offers</label>&#38;nbsp;<span class="badge"><%= location.aid_offers.length %></span></label> -->
+                    </div>
+                    <br/>
+                    <div class="text-right">
+                        <%- unless location.lat.nil? -%>
+                            <a target="_blank" href="https://www.google.com/maps/place/<%= location.lat%>,<%= location.lon%>" class="btn btn-default btn-xs" title="Map of <%= location.township%>">
+                            <span class="glyphicon glyphicon-map-marker"></span> 
+                        </a>
                     <%- end -%>
+                        <a href="/+/<%= location.township%>" class="btn btn-default btn-xs">Details</a> 
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>Latest Aid Requests</h4>
-                            <%- @requests.each do |req| -%>
-                                <div class="panel panel-default">
-                                <div class="panel-body">
-                                    For <span class="label label-danger">
-                                        <%= req.location.township %>
-                                    </span>
-                                    &nbsp;<span>Ref Code: <%= req.code %></span></br>
-                                    Posted <span class="badge"><%= time_ago_in_words(req.created_at)%> ago</span>
+            </div>
+        </div>
+    <%- end -%>
+    </div>
+</div>
 
-                                    <p class="content" style="font-size:1.4em;font-weight:bold;">
-                                    <%= req.content %> 
-                                    </p>
-                                </div>
-                            </div>
-                        <%- end -%>
-                            <p class=""><a href="/requests" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Latest Aid Offers</h4>
-                            <%- @offers.each do |offer| -%>
-                                <div class="panel panel-default">
-                                <div class="panel-body">
-                                    For <span class="label label-danger">
-                                        <%= offer.location.township %>
-                                    </span>
-                                    &nbsp;<span>Ref Code: <%= offer.code %></span></br>
-                                    Posted <span class="badge"><%= time_ago_in_words(offer.created_at)%> ago</span>
-
-                                    <p class="content" style="font-size:1.4em;font-weight:bold;">
-                                    <%= offer.content %> 
-                                    </p>
-                                </div>
-                            </div>
-                        <%- end -%>
-                            <p class=""><a href="/offers" style="color:#333">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
-                        </div>
-                    </div>
-                </div>
