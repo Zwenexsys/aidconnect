@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout 'striking'
+
   def index
     @locations = Location.where("status <> 'NORMAL'").includes([:aid_requests, :aid_offers]).order(:seq).order(:township)
     @requests = AidRequest.all.order("created_at desc").limit(5)

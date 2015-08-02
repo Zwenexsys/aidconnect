@@ -7,6 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 data = File.open("db/census_tablea3.csv").readlines
+coord = File.open("db/coords.csv").readlines
+cdata = {}
+coord.each do |c|
+    cols = c.split(",")
+    cdata[cols[1]] = [cols[2],cols[3]]
+end
 data.each do |line|
     state, district, township, total_male, total_female, urban_total_male, urban_total_female, rural_total_male, rural_total_female = line.split("\t")
     status = "NORMAL"
@@ -28,6 +34,8 @@ data.each do |line|
                         :seq => (status == "NORMAL" ? 1000 : lvl[township]),
                         :mm_state => "",
                         :mm_township => "",
+                        :lon => cdata[township].nil? ? nil : cdata[township][0].to_f, 
+                        :lat => cdata[township].nil? ? nil : cdata[township][1].to_f, 
                         :demographic => {
                             :state => state.strip, 
                             :district => district.strip, 

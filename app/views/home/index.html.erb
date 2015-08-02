@@ -1,12 +1,50 @@
-<div class="container" style="">
-    <div class="jumbotron">
-        <p>ရေဘေး အကူညီတောင်းရန် (သို့မဟုတ်) အကူညီပေးရန် 1876 ကိုဖုန်းခေါ်လိုက်ပါ။ <br/>
-        Call 1876 to Request Aid OR Offer Aid for Flood Victims.</p>
-        <p><a class="btn btn-primary" href="/about">Learn more (အသေးစိတ်) &raquo;</a></p>
+<div class="row" style="background-color:#FECB00;color:white;">
+    <div class="container">
+        <div class="header">
+            <p class="text-center" style="font-size:28px;margin-bottom:0px;">ရေဘေးကယ်ဆယ် ကမ်းလက်သွယ်</p>
+            <h3 class="text-center" style="color:white;margin-top:0px;">Call Hotline <a href="tel://012399977" style="color:#f00;">01-23-999-77</a></h3>
+        </div>
     </div>
 </div>
+<div class="row" style="background-color:#34b233;color:white;">
+    <div class="container">
+        <div class="col-md-12">
+            <br/>
+            <p class="text-center" style="font-size:16px;margin-bottom:0px;">စုစုပေါင်းကယ်ဆယ်ရေးအကူအညီ</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-5">
+            <p class="text-center" style="font-size:18px;">Aid Requests တောင်းခံမှုများ</p>
+            <h1 class="text-center", style="color:#fff;"><%= AidRequest.count %></h1>
+        </div>
+        <div class="col-md-2">
+            <span style="font-size:100px;">&#9733;</span>
+        </div>
+        <div class="col-md-5">
+            <p class="text-center" style="font-size:18px;">Aid Offers ပေးလိုမှုများ</p>
+            <h1 class="text-center", style="color:#fff;"><%= AidOffer.count %></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <p class="text-center" >
+            <a href="/about" style="font-size:18px;color:white;">How to ask/offer Help? အကူအညီတောင်း/ပေးလိုပါလျှင်</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="background-color:#EA2839;color:white;">
+    <div class="container">
+        <div class="col-md-12">
+            <h3 class="text-center" style="color:#fff">Flood Locations<br/>ရေဘေးသင့် ဒေသများ</h3>
+            <br/>
+        </div>
+    </div>
+</div>
+<br/>
 <div class="container">
-    <h3>2015 Flood Locations</h3>
     <div class="row">
         <%- 
             lvl = {
@@ -31,9 +69,11 @@
                 </div>
                 <br/>
                     <div class="text-right">
-                        <a href="#" class="btn btn-default btn-xs" title="Map of <%= location.township%>">
+                        <%- unless location.lat.nil? -%>
+                        <a target="_blank" href="https://www.google.com/maps/place/<%= location.lat%>,<%= location.lon%>" class="btn btn-default btn-xs" title="Map of <%= location.township%>">
                             <span class="glyphicon glyphicon-map-marker"></span> 
                         </a>
+                        <%- end -%>
                         <a href="/+/<%= location.township%>" class="btn btn-default btn-xs">Details</a> 
                      </div>
                 </div>
