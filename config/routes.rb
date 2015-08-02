@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'api/requests'
 
+  post 'api/offers' => "api#create_offer", :format => :json
+
+  post 'api/requests' => "api#create_request", :format => :json
+
   get 'home/index'
 
   get '/offers' => "home#offers" 
