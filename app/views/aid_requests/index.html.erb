@@ -1,31 +1,23 @@
 <%- model_class = AidRequest -%>
 <div class="container">
 <div class="page-header">
-  <h1>Aid Requests</h1>
+  <h4> အကူညီ ေတာင္းခံမႈမ်ား</h4>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:nric) %></th>
+      <th><%= model_class.human_attribute_name("contact") %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
-      <th><%= model_class.human_attribute_name(:location_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @aid_requests.each do |aid_request| %>
       <tr>
-        <td><%= link_to aid_request.id, aid_request_path(aid_request) %></td>
-        <td><%= aid_request.name %></td>
-        <td><%= aid_request.phone %></td>
-        <td><%= aid_request.nric %></td>
+        <td><%= aid_request.name  + "(" + aid_request.phone + ") [" +aid_request.phone + "]"%></td>
         <td><%= aid_request.content %></td>
-        <td><%= aid_request.location_id %></td>
-        <td><%=l aid_request.created_at %></td>
+        <td><%= aid_request.location.township %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aid_request_path(aid_request), :class => 'btn btn-primary btn-xs' %>

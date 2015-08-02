@@ -1,31 +1,23 @@
 <div class="container">
 <%- model_class = AidOffer -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+    <h3>အကူညီ ေပးလိုမႈမ်ား</h3>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:nric) %></th>
+      <th><%= model_class.human_attribute_name(:contact) %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
-      <th><%= model_class.human_attribute_name(:location_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @aid_offers.each do |aid_offer| %>
       <tr>
-        <td><%= link_to aid_offer.id, aid_offer_path(aid_offer) %></td>
-        <td><%= aid_offer.name %></td>
-        <td><%= aid_offer.phone %></td>
-        <td><%= aid_offer.nric %></td>
+          <td><%= aid_offer.name + "(#{aid_offer.phone}) [#{aid_offer.nric}]"%></td>
         <td><%= aid_offer.content %></td>
-        <td><%= aid_offer.location_id %></td>
-        <td><%=l aid_offer.created_at %></td>
+        <td><%= aid_offer.location.township %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aid_offer_path(aid_offer), :class => 'btn btn-primary btn-xs' %>
