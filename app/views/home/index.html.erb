@@ -59,7 +59,7 @@
                 <div class="panel panel-default">
                 <div class="panel-body">
                     For <span class="label label-danger">
-                        <%= req.location.township %>
+                        <%= req.location_id == -1 ? "ANYWHERE" : req.location.township %>
                     </span>
                     &nbsp;<span>Ref Code: <%= req.code %></span></br>
                     Posted <span class="badge"><%= time_ago_in_words(req.created_at)%> ago</span>
@@ -78,7 +78,7 @@
                 <div class="panel panel-default">
                 <div class="panel-body">
                     For <span class="label label-danger">
-                        <%= offer.location.township %>
+                        <%= offer.location_id == -1 ? "ANYWHERE" : offer.location.township %>
                     </span>
                     &nbsp;<span>Ref Code: <%= offer.code %></span></br>
                     Posted <span class="badge"><%= time_ago_in_words(offer.created_at)%> ago</span>

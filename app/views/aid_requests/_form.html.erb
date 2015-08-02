@@ -2,7 +2,7 @@
     <%= f.hidden_field :code %>
   <div class="form-group">
     <%= f.label :location_id, :class => 'control-label' %>
-    <%= f.select :location_id, options_for_select(@locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_request.location_id), {}, :class => 'form-control' %>
+    <%= f.select :location_id, options_for_select([["ANY",-1]] + @locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_request.location_id), {}, :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :content, :class => 'control-label' %>
