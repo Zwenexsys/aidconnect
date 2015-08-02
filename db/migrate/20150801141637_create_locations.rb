@@ -7,7 +7,7 @@ class CreateLocations < ActiveRecord::Migration
       t.text :description
       t.float :lat
       t.float :lon
-      t.jsonb :demographic
+      t.json :demographic
 
       t.timestamps null: false
     end
