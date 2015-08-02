@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get '+/:id' => "locations#show" 
   get 'about' => "home#about" 
 
-  resources :shelters
-  resources :general_offers
+  #resources :shelters
+  #resources :general_offers
   resources :aid_offers
   resources :aid_requests
-  resources :news_posts
+  #resources :news_posts
   resources :locations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

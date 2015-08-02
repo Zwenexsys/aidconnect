@@ -21,8 +21,12 @@
 
 <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
 <style> 
-@import url(http://fonts.googleapis.com/earlyaccess/myanmarsanspro.css);
-h1,h2,h4,h5,h6,p,input,div,span,a{ font-family: 'Myanmar Sans Pro', sans-serif; } </style>
+@font-face {
+font-family:'Zawgyi-One';
+src:local('Zawgyi-One'), url('http://mmwebfonts.comquas.com/fonts/zawgyi.woff') format('woff'), url('http://mmwebfonts.comquas.com/fonts/zawgyi.ttf') format('ttf');
+}
+h1,h2,h4,h5,h6,p,input,div,span,a{ font-family: 'Zawgyi-One', sans-serif; } 
+</style>
 </head>
 <body>
 

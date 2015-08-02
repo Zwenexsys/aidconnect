@@ -1,7 +1,7 @@
 <div class="row" style="background-color:#FECB00;color:white;">
     <div class="container">
         <div class="header">
-            <p class="text-center" style="font-size:28px;margin-bottom:0px;">ရေဘေး အကူညီ ဆက်သွယ်ရေး</p>
+            <p class="text-center" style="font-size:28px;margin-bottom:0px;">ရေဘေး အကူအညီ ဆက်သွယ်ရေး </p>
             <h3 class="text-center" style="color:white;margin-top:0px;">Hotline <a href="tel:012399977" style="color:#f00;">01-23-999-77</a></h3>
         </div>
     </div>
@@ -18,23 +18,23 @@
     </div>
     <div class="container">
         <div class="col-md-5">
-            <p class="text-center" style="font-size:18px;">Aid Requests တောင်းခံမှုများ</p>
+            <p class="text-center" style="font-size:18px;">အကူအညီ တောင်းခံမှုများ</p>
             <h1 class="text-center", style="color:#fff;"><%= AidRequest.count %></h1>
-            <p class="text-center"><a href="/requests" style="color:#fff" class="btn btn-primary">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class="text-center"><a href="/requests" style="color:#fff" class="btn btn-primary">စာရင္းအျပည့္အစံု</a></p>
         </div>
         <div class="col-md-2">
             <p class="text-center"><span style="font-size:90px;">&#9733;</span></p>
         </div>
         <div class="col-md-5">
-            <p class="text-center" style="font-size:18px;">Aid Offers ပေးလိုမှုများ</p>
+            <p class="text-center" style="font-size:18px;">အကူအညီ ပေးလိုမှုများ</p>
             <h1 class="text-center", style="color:#fff;"><%= AidOffer.count %></h1>
-            <p class="text-center"><a href="/offers" style="color:#fff" class="btn btn-primary">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class="text-center"><a href="/offers" style="color:#fff" class="btn btn-primary">စာရင္းအျပည့္အစံု</a></p>
         </div>
     </div>
     <div class="container">
         <div class="col-md-12">
             <p class="text-center" >
-            <a href="/about" style="font-size:18px;color:white;">How to ask/offer Help? အကူအညီတောင်း/ပေးလိုပါလျှင်</a>
+            <a href="/about" style="font-size:18px;color:white;">အကူအညီ စာရင္းသြင္းရန္၊ ေမးျမန္းစံုစမ္းရန္ 01-23-999-77 ကိုဖုန္းေခၚလိုက္ပါ။</a>
             </p>
         </div>
     </div>
@@ -43,7 +43,7 @@
 <div class="row" style="background-color:#EA2839;color:white;">
     <div class="container">
         <div class="col-md-12">
-            <h3 class="text-center" style="color:#fff">Latest Request & Offers<br/>နောက်ဆုံးရ အကူအညီ တောင်းခံ၊ ပေးလိုမှုများ</h3>
+            <h3 class="text-center" style="color:#fff">နောက်ဆံုးရ အကူအညီ တောင်းခံမှု၊ ပေးလိုမှုများ</h3>
             <br/>
         </div>
     </div>
@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h4>Latest Aid Requests</h4>
+            <h4>အကူအညီ တောင်းခံမှုများ</h4>
             <%- @requests.each do |req| -%>
                 <div class="panel panel-default">
                 <div class="panel-body">
@@ -70,10 +70,10 @@
                 </div>
             </div>
         <%- end -%>
-            <p class=""><a href="/requests" style="" class="btn btn-default">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class=""><a href="/requests" style="" class="btn btn-default">စာရင္းအျပည့္အစံု</a></p>
         </div>
         <div class="col-md-6">
-            <h4>Latest Aid Offers</h4>
+            <h4>အကူအညီ ပေးလိုမှုများ</h4>
             <%- @offers.each do |offer| -%>
                 <div class="panel panel-default">
                 <div class="panel-body">
@@ -89,13 +89,13 @@
                 </div>
             </div>
         <%- end -%>
-            <p class=""><a href="/offers" style="" class="btn btn-default">View All<br/> အားလုံးကိုကြည့်ရန်</a></p>
+            <p class=""><a href="/offers" style="" class="btn btn-default">စာရင္းအျပည့္အစံု</a></p>
         </div>
     </div>
 </div>
 <div class="row" style="background-color:#EA2839;color:white;">
 <div class="container">
-            <h3 class="text-center" style="color:#fff">Flood Locations<br/>ရေဘေးသင့် ဒေသများ</h3>
+    <h3 class="text-center" style="color:#fff">ရေဘေးသင့် ဒေသများ</h3>
     </div>
 </div>
 <br/>
