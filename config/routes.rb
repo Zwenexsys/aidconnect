@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/offers' => "home#offers" 
   get '/requests' => "home#requests" 
   get '+/:id' => "locations#show" 
+  get '+/o/:code' => "home#offer_detail"
+  get '+/r/:code' => "home#request_detail" 
   get 'about' => "home#about" 
 
   #resources :shelters

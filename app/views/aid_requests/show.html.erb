@@ -1,31 +1,29 @@
+<br/>
+<div class="row" style="background-color:#FECB00;">
+    <div class="container">
+        <h4 style="color:#fff;">အကူညီ ေတာင္းပါသည္</h4>
+    </div>
+</div>
+<br/>
 <div class="container">
-<%- model_class = AidRequest -%>
-<div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human %><%= @aid_request.code %></h1>
-</div>
+    <%- model_class = AidOffer -%>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h6>For <span class="label label-danger">
+                <%= @aid_request.location_id == -1 ? "ANYWHERE" : @aid_request.location.township %>
+        </span>
+        &nbsp;<span>Ref Code: <%= @aid_request.code %></span>&nbsp;
+        Posted <span class="badge"><%= time_ago_in_words(@aid_request.created_at)%> ago</span></h6>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @aid_request.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @aid_request.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:nric) %>:</strong></dt>
-  <dd><%= @aid_request.nric %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
-  <dd><%= @aid_request.content %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location_id) %>:</strong></dt>
-  <dd><%= @aid_request.location_id %></dd>
-</dl>
+            <p class="content" style="font-size:1.4em;font-weight:bold;">
+            <%= @aid_request.content %> 
+            </p>
+        </div>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              aid_requests_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_aid_request_path(@aid_request), :class => 'btn btn-primary' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              aid_request_path(@aid_request),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+    </div>
 </div>
-</div>
+<%- 
+    content_for :loc do 
+        "/+/o/" + @aid_request.code
+    end 
+-%>

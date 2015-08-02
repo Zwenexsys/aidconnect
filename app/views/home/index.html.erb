@@ -61,12 +61,13 @@
                     For <span class="label label-danger">
                         <%= req.location_id == -1 ? "ANYWHERE" : req.location.township %>
                     </span>
-                    &nbsp;<span>Ref Code: <%= req.code %></span></br>
+                    &nbsp;REF: <span><%= req.code%></a></span>
                     Posted <span class="badge"><%= time_ago_in_words(req.created_at)%> ago</span>
 
                     <p class="content" style="font-size:1.4em;font-weight:bold;">
                     <%= req.content %> 
                     </p>
+                    <div class="fb-share-button" data-href="http://kunyi.asia/+/r/<%= req.code %>" data-layout="icon_link"></div>
                 </div>
             </div>
         <%- end -%>
@@ -80,12 +81,13 @@
                     For <span class="label label-danger">
                         <%= offer.location_id == -1 ? "ANYWHERE" : offer.location.township %>
                     </span>
-                    &nbsp;<span>Ref Code: <%= offer.code %></span></br>
+                    &nbsp;<span>Ref Code: <%= offer.code %></span>&nbsp;
                     Posted <span class="badge"><%= time_ago_in_words(offer.created_at)%> ago</span>
 
                     <p class="content" style="font-size:1.4em;font-weight:bold;">
                     <%= offer.content %> 
                     </p>
+                    <div class="fb-share-button" data-href="http://kunyi.asia/+/o/<%= offer.code %>" data-layout="icon_link"></div>
                 </div>
             </div>
         <%- end -%>

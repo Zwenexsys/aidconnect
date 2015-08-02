@@ -15,9 +15,9 @@
   <tbody>
     <% @aid_requests.each do |aid_request| %>
       <tr>
-        <td><%= aid_request.name  + "(" + aid_request.phone + ") [" +aid_request.phone + "]"%></td>
+        <td><%= (aid_request.name || "") + "(#{aid_request.phone||""}) [#{aid_request.nric || ""}]"%></td>
         <td><%= aid_request.content %></td>
-        <td><%= aid_request.location.township %></td>
+        <td><%= aid_request.location.nil? ? "ANYWHERE" : aid_request.location.township %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aid_request_path(aid_request), :class => 'btn btn-primary btn-xs' %>

@@ -18,4 +18,14 @@ class HomeController < ApplicationController
     @requests = AidRequest.all.includes(:location).order("created_at desc").limit(1000)
   end
 
+  def offer_detail
+    @aid_offer = AidOffer.find_by_code(params[:code])
+    render :template => "aid_offers/show"
+  end
+
+  def request_detail
+    @aid_request = AidRequest.find_by_code(params[:code])
+    render :template => "aid_requests/show"
+  end
+
 end
