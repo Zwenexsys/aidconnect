@@ -48,8 +48,8 @@ h1,h2,h4,h5,h6,p,input,div,span,a{ font-family: 'Zawgyi-One', sans-serif; }
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="<%= action_name == 'index' ? "active" : "" %>"><a href="/">Home</a></li>
-                <li class="<%= action_name == 'requests' ? "active" : "" %>"><a href="/requests">Aid Requests</a></li>
-                <li class="<%= action_name == 'offers' ? "active" : "" %>"><a href="/offers">Aid Offers</a></li>
+                <li class="<%= action_name == 'requests' ? "active" : "" %>"><a href="/requests">ကူညီ လိုသည္မ်ား</a></li>
+                <li class="<%= action_name == 'offers' ? "active" : "" %>"><a href="/offers">ကူညီ ေပးသည္မ်ား</a></li>
                 <li class="<%= action_name == 'about' ? "active" : "" %>"><a href="/about" >About</a></li>
                 <%- unless @current_user.nil? -%>
                 <li class="dropdown">
