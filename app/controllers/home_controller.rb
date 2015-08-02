@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  layout 'striking'
+  layout 'striking' , :only => ["index"]
 
   def index
     @locations = Location.where("status <> 'NORMAL'").includes([:aid_requests, :aid_offers]).order(:seq).order(:township)

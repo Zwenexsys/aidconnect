@@ -57,11 +57,23 @@
 <%= yield %>
 
 <br/>
-<div class="container">
-    <div class="well">
-        &copy; FREE. 
-    </div>
+<div class="container" style="background-color:#f0f0f0;">
+        <div class="col-md-4">
+            <h6>Organized by </h6>
+            MYANMAR BARCAMPERS <br/><%= image_tag "bcylogo.png", :width => "240px", :height => "93px" %>
+        </div>
+        <div class="col-md-4">
+            <h6>Operation sponsored by </h6>
+            <a href="http://www.blueoceanmgt.com" target="_blank"><%= image_tag "1876.png" %></a>
+        </div>
+        <div class="col-md-4">
+            <h6>Development sponsored by </h6>
+            <a href="http://www.zwenex.com" target="_blank"><%= image_tag "logo_zwenex.png" %></a>
+        </div>
 </div>
+<div class="container" style="background-color:#2196f3;color:white;">
+        <div class="col-md-12">&copy; FREE. </div>
+    </div>
 
 
     </div> <!-- /container -->
