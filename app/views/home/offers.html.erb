@@ -7,7 +7,7 @@
 <div class="container">
     <h3 class="text-center">အကူညီ ေပးလိုမႈမ်ား စာရင္း</h3>
     <%- @offers.each do |offer| %>
-    <div class="col-md-3" style="border-right:solid 2px #ccc;"">
+    <div class="col-md-12" style="border-right:solid 2px #ccc;"">
         For <span class="label label-danger">
             <%= offer.location_id == -1 ? "ANYWHERE" : offer.location.township %>
         </span>

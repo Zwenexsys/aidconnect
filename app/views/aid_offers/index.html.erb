@@ -6,6 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= model_class.human_attribute_name("code") %></th>
       <th><%= model_class.human_attribute_name(:contact) %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @aid_offers.each do |aid_offer| %>
       <tr>
+        <td><%= aid_offer.conde %></td>
         <td><%= (aid_offer.name || "") + "(#{aid_offer.phone||""}) [#{aid_offer.nric || ""}]"%></td>
         <td><%= aid_offer.content %></td>
         <td><%= aid_offer.location.nil? ? "ANYWHERE" : aid_offer.location.township %></td>

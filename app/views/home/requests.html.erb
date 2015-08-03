@@ -7,7 +7,7 @@
 <div class="container">
     <h3 class="text-center">အကူညီ ေတာင္းခံမႈမ်ား စာရင္း</h3>
     <%- @requests.each do |req| %>
-    <div class="col-md-3" style="border-right:solid 2px #ccc;"">
+    <div class="col-md-12" style="border-right:solid 2px #ccc;"">
         For <span class="label label-danger">
             <%= req.location_id == -1 ? "ANYWHERE" : req.location.township %>
         </span>

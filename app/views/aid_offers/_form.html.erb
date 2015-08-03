@@ -1,7 +1,7 @@
 <%= form_for @aid_offer do |f| %>
   <div class="form-group">
     <%= f.label :location_id, :class => 'control-label' %>
-    <%= f.select :location_id, options_for_select([["ANY",-1]] + @locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_offer.location_id), {}, :class => 'form-control' %>
+    <%= f.select :location_id, options_for_select([["ANY",-1]] + @locations.collect do |l| [(((l.mm_township.nil? or l.mm_township.empty?) ? nil : l.mm_township) || l.township) + " (" + l.state + ")", l.id]; end, @aid_offer.location_id), {}, :class => 'form-control' %>
     <span id="helpBlock1" class="help-block">ေနရာ မသတ္မွတ္နိုင္လွ်င္ ANY ကိုေရြးပါ။</span>
   </div>
   <div class="form-group">
