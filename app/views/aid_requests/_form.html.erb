@@ -3,10 +3,12 @@
   <div class="form-group">
     <%= f.label :location_id, :class => 'control-label' %>
     <%= f.select :location_id, options_for_select([["ANY",-1]] + @locations.collect do |l| [l.state + " - " + l.township, l.id]; end, @aid_request.location_id), {}, :class => 'form-control' %>
+    <span id="helpBlock1" class="help-block">ေနရာ မသတ္မွတ္နိုင္လွ်င္ ANY ကိုေရြးပါ။</span>
   </div>
   <div class="form-group">
     <%= f.label :content, :class => 'control-label' %>
     <%= f.text_area :content, :class => 'form-control', :rows => "6" %>
+    <span id="helpBlock2" class="help-block">စာေျကာင္းရွည္ရွည္ေရးပါက စာလံုးမ်ားျကားတြင္ Space ရိုက္ေပးပါ။</span>
   </div>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label' %>
